@@ -1,0 +1,12 @@
+# NetBeans
+nbproject/private/
+build/
+dist/
+
+# Maven
+target/
+
+# Otros
+*.log
+*.class
+
