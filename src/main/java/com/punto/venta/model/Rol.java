@@ -6,12 +6,14 @@ package com.punto.venta.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "Roles")
@@ -21,10 +23,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Rol {
+
     @Id
-    @Column(name = "id_rol")
-    int id_rol;
-    
-    @Column(name = "nombre")
-    String nombre_rol;
+    @GeneratedValue(generator = "rol-id-generator")
+    @GenericGenerator(
+            name = "rol-id-generator",
+            strategy = "com.punto.venta.generators.RolIdGenerator"
+    )
+    @Column(name = "id")
+    private String id_rol;
+
+    @Column(name = "nombre", nullable = false, length = 20)
+    private String nombre_rol;
 }

@@ -1,12 +1,14 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.punto.venta;
 
+import com.punto.venta.controlador.RolDAO;
+import com.punto.venta.model.Rol;
 import com.punto.venta.vista.vtnLogin;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
 
 /**
  *
