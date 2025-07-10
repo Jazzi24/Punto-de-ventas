@@ -17,11 +17,8 @@ public class ConexionDB {
     private EntityManagerFactory emf;
     private EntityManager em;
 
-    public void ConexionBD() {
-        emf = Persistence.createEntityManagerFactory("conexionBD");
-    }
-
     public EntityManager abrirConexion() {
+        emf = Persistence.createEntityManagerFactory("conexionBD");
         em = emf.createEntityManager();
         return em;
     }

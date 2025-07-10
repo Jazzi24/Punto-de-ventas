@@ -4,7 +4,7 @@
  */
 package com.punto.venta.controlador;
 
-import com.punto.venta.model.Rol;
+import com.punto.venta.model.Permiso;
 import jakarta.persistence.EntityManager;
 import java.util.List;
 import lombok.Builder;
@@ -16,21 +16,20 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class RolDAO {
+public class PermisoDAO {
+     private EntityManager em;
 
-    private EntityManager em;
-
-    public RolDAO(EntityManager em) {
+    public PermisoDAO(EntityManager em) {
         this.em = em;
     }
-
-    // Crear un rol (por ID)
-    public void guardar(Rol rol) {
+    
+    // Crear un Permiso (por ID)
+    public void guardar(Permiso permiso) {
         try {
             em.getTransaction().begin();
-            em.persist(rol);
+            em.persist(permiso);
             em.getTransaction().commit();
-            System.out.println("Rol creado con éxito.");
+            System.out.println("Permiso creado con éxito.");
         } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
@@ -39,31 +38,31 @@ public class RolDAO {
         }
     }
     
-    // Buscar un rol (por ID).
-    public Rol buscarPorId(String id) {
+    // Buscar un Permiso (por ID).
+    public Permiso buscarPorId(String id) {
         try {
-            return em.find(Rol.class, id);
+            return em.find(Permiso.class, id);
         } finally {
             em.close();
         }
     }
 
-    // Listar roles (todos).
-    public List<Rol> listarTodos() {
+    // Listar permiso (todos).
+    public List<Permiso> listarTodos() {
         try {
-            return em.createQuery("SELECT r FROM Rol r", Rol.class).getResultList();
+            return em.createQuery("SELECT p FROM Permiso p", Permiso.class).getResultList();
         } finally {
             em.close();
         }
     }
 
-    // Actualizar roles.
-    public void actualizar(Rol rol) {
+    // Actualizar permiso.
+    public void actualizar(Permiso permiso) {
         try {
             em.getTransaction().begin();
-            em.merge(rol);
+            em.merge(permiso);
             em.getTransaction().commit();
-            System.out.println("Rol actualizado con éxito.");
+            System.out.println("permiso actualizado con éxito.");
         } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
@@ -72,15 +71,15 @@ public class RolDAO {
         }
     }
 
-    // Eliminar roles.
+    // Eliminar permiso.
     public void eliminar(String id) {
         try {
-            Rol rol = em.find(Rol.class, id);
-            if (rol != null) {
+            Permiso permiso = em.find(Permiso.class, id);
+            if (permiso != null) {
                 em.getTransaction().begin();
-                em.remove(rol);
+                em.remove(permiso);
                 em.getTransaction().commit();
-                System.out.println("Rol eliminado con éxito.");
+                System.out.println("permiso eliminado con éxito.");
             }
         } catch (Exception e) {
             em.getTransaction().rollback();

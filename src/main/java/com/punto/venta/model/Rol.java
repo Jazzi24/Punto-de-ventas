@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,9 +31,11 @@ public class Rol {
             name = "rol-id-generator",
             strategy = "com.punto.venta.generators.RolIdGenerator"
     )
+    @Size(min = 2, max = 3)
     @Column(name = "id")
     private String id_rol;
 
-    @Column(name = "nombre", nullable = false, length = 20)
+    @Size(min = 3, max = 30)
+    @Column(name = "nombre", nullable = false, length = 30)
     private String nombre_rol;
 }
