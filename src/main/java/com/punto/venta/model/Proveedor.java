@@ -36,12 +36,12 @@ public class Proveedor {
             strategy = "com.punto.venta.generators.ProveedorIdGenerator"
     )
     @Size(min = 3, max = 5)
-    @Column(name = "id_proveedor", nullable = false, length = 5)
-    private String id_proveedor;
+    @Column(name = "idproveedor", nullable = false, length = 5)
+    private String idProveedor;
 
     @Size(min = 3, max = 100)
-    @Column(name = "nombre", nullable = false, length = 100)
-    private String nombre;
+    @Column(name = "nombreProveedor", nullable = false, length = 100)
+    private String nombreProveedor;
 
     @Size(min = 10, max = 10)
     @Column(name = "telefono", nullable = true, length = 10)

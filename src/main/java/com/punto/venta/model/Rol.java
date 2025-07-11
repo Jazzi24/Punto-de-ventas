@@ -33,9 +33,9 @@ public class Rol {
     )
     @Size(min = 2, max = 3)
     @Column(name = "id")
-    private String id_rol;
+    private String idRol;
 
     @Size(min = 3, max = 30)
     @Column(name = "nombre", nullable = false, length = 30)
-    private String nombre_rol;
+    private String nombreRol;
 }

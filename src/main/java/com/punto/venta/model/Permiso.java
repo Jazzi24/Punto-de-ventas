@@ -36,10 +36,10 @@ public class Permiso {
             strategy = "com.punto.venta.generators.PermisoIdGenerator"
     )
     @Size(min = 2, max = 3)
-    @Column(name = "id_permiso")
-    private String id_permiso;
+    @Column(name = "idPermiso")
+    private String idPermiso;
     
     @Size(min = 3, max = 30)
-    @Column(name = "nombre_permiso", nullable = false, length = 30)
-    private String nombre_permiso;
+    @Column(name = "nombrePermiso", nullable = false, length = 30)
+    private String nombrePermiso;
 }

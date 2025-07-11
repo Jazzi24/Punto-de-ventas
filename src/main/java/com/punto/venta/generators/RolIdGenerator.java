@@ -33,7 +33,7 @@ public class RolIdGenerator implements IdentifierGenerator {
         String newId = prefix + next;
 
         if (object instanceof com.punto.venta.model.Rol rol) {
-            rol.setId_rol(newId);
+            rol.setIdRol(newId);
         }
 
         return newId;

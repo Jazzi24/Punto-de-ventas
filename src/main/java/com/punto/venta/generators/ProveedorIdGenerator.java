@@ -17,7 +17,7 @@ public class ProveedorIdGenerator implements IdentifierGenerator {
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) {
         String prefix = "PV";
-        String query = "SELECT id_proveedor FROM proveedores ORDER BY id_proveedor DESC LIMIT 1";
+        String query = "SELECT idproveedor FROM proveedores ORDER BY idproveedor DESC LIMIT 1";
 
         String lastId = (String) session.createNativeQuery(query).uniqueResult();
         int next = 1;
@@ -32,8 +32,8 @@ public class ProveedorIdGenerator implements IdentifierGenerator {
 
         String newId = prefix + next;
 
-        if (object instanceof com.punto.venta.model.Permiso permiso) {
-            permiso.setId_permiso(newId);
+        if (object instanceof com.punto.venta.model.Proveedor proveedor) {
+            proveedor.setIdProveedor(newId);
         }
 
         return newId;

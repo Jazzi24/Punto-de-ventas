@@ -12,12 +12,12 @@ import org.hibernate.id.IdentifierGenerator;
  *
  * @author Jazzi
  */
-public class PermisoIdGenerator implements IdentifierGenerator {
+public class CategoriaIdGenerator implements IdentifierGenerator {
 
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) {
-        String prefix = "P";
-        String query = "SELECT idPermiso FROM permisos ORDER BY idPermiso DESC LIMIT 1";
+        String prefix = "CG";
+        String query = "SELECT idCategoria FROM Categorias ORDER BY idCategoria DESC LIMIT 1";
 
         String lastId = (String) session.createNativeQuery(query).uniqueResult();
         int next = 1;
@@ -32,8 +32,8 @@ public class PermisoIdGenerator implements IdentifierGenerator {
 
         String newId = prefix + next;
 
-        if (object instanceof com.punto.venta.model.Permiso permiso) {
-            permiso.setIdPermiso(newId);
+        if (object instanceof com.punto.venta.model.Categoria categoria) {
+            categoria.setIdCategoria(newId);
         }
 
         return newId;
