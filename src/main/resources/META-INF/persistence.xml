@@ -2,9 +2,11 @@
     <persistence-unit name="conexionBD" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.punto.venta.model.Rol</class>
+        <class>com.punto.venta.model.Permiso</class>
+        <class>com.punto.venta.model.Proveedor</class>
         <properties>
             <!-- Conexión a MySQL -->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/puntoventa?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/puntoventa?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="root"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

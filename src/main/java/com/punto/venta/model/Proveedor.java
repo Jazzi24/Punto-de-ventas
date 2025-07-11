@@ -4,10 +4,54 @@
  */
 package com.punto.venta.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  *
  * @author Jazzi
  */
+@Entity
+@Table(name = "Proveedores")
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Proveedor {
     
+    @Id
+    @GeneratedValue(generator = "proveedor-id-generator")
+    @GenericGenerator(
+            name = "proveedor-id-generator",
+            strategy = "com.punto.venta.generators.ProveedorIdGenerator"
+    )
+    @Size(min = 3, max = 5)
+    @Column(name = "id_proveedor", nullable = false, length = 5)
+    private String id_proveedor;
+
+    @Size(min = 3, max = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
+    private String nombre;
+
+    @Size(min = 10, max = 10)
+    @Column(name = "telefono", nullable = true, length = 10)
+    private String telefono;
+
+    @Size(min = 3, max = 200)
+    @Column(name = "direccion", nullable = true, length = 200)
+    private String direccion;
+
+    @Size(min = 3, max = 100)
+    @Column(name = "correo", nullable = true, length = 100)
+    private String correo;
 }

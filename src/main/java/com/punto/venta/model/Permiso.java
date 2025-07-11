@@ -37,9 +37,9 @@ public class Permiso {
     )
     @Size(min = 2, max = 3)
     @Column(name = "id_permiso")
-    String id_permiso;
+    private String id_permiso;
     
     @Size(min = 3, max = 30)
     @Column(name = "nombre_permiso", nullable = false, length = 30)
-    String nombre_permiso;
+    private String nombre_permiso;
 }
